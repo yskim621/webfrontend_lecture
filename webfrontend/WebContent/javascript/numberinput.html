@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>숫자만 입력받기</title>
+</head>
+<body>
+	<p>숫자만 입력받기</p>
+	<form>
+		<p>
+			<input type="text" onkeydown="return showKeyCode(event)"
+				style="ime-mode: disabled;" /> <span id="keyinfo"> </span>
+		</p>
+	</form>
+
+</body>
+
+<script>
+	function showKeyCode(event) {
+		event = event || window.event;
+		var keyID = (event.which) ? event.which : event.keyCode;
+		if ((keyID >= 48 && keyID <= 57) || (keyID >= 96 && keyID <= 105)) {
+			return;
+		} else {
+			document.getElementById("keyinfo").innerHTML = "숫자만 입력하세요";
+			return false;
+		}
+	}
+</script>
+</html>
